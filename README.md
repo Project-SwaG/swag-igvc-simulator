@@ -72,6 +72,10 @@ The repo is comprised of multiple ROS packages and one sandbox folder for miscel
 2. Install dependencies:
     ```bash
     cd swag-igvc-simulator
+    # The below command will install them all.
+    rosdep install --from-paths src --ignore-src
+    
+    # Very rarely you will need to run this bash file
     ./install_dependencies.sh
     ```
 
