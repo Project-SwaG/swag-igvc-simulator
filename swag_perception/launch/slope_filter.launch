@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="swag_perception" type="slope_filter" name="slope_filter" output="screen" required="true" >
+        <rosparam command="load" file="$(find swag_perception)/config/slope_filter.yaml"/>
+    </node>
+</launch>

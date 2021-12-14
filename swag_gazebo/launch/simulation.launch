@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<launch>
+    <env name="GAZEBO_MODEL_PATH" value="$(find swag_description)"/>
+    <arg name="world_name" default="$(find swag_description)/urdf/worlds/modified.world"/>
+    <arg name="cmd_timeout" default="0.5"/>
+    <!-- accelerate lidar with GPU -->
+    <arg name="gpu" default="false"/>
+
+    <!-- Vehicle pose -->
+    <arg name="x" default="0"/>
+    <arg name="y" default="23"/>
+    <arg name="z" default="0.0"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0"/>
+
+    <param name="/use_sim_time" value="true"/>
+
+    <!-- Create the world. -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_name)"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <include file="$(find swag_description)/launch/spawn_jessii.launch">
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="z" value="$(arg z)"/>
+        <arg name="roll" value="$(arg roll)"/>
+        <arg name="pitch" value="$(arg pitch)"/>
+        <arg name="yaw" value="$(arg yaw)"/>
+
+        <!-- accelerate lidar with GPU -->
+        <arg name="gpu" value="$(arg gpu)"/>
+    </include>
+
+    <include file="$(find swag_gazebo)/launch/swag_control.launch" />
+
+    <node name="ground_truth_republisher" pkg="swag_gazebo" type="ground_truth_republisher" output="screen" required="true">
+        <param name="ground_truth_sub_topic" value="/ground_truth/state_raw"/>
+        <param name="ground_truth_pub_topic" value="/ground_truth"/>
+    </node>
+
+    <!-- <node name="mag_republisher" pkg="swag_gazebo" type="mag_republisher" output="screen" required="true">
+        <param name="mag_sub_topic" value="/magnetometer/vector"/>
+        <param name="mag_pub_topic" value="/magnetometer_mag"/>
+        <param name="mag_field_variance" value = "0.000001"/>
+    </node> -->
+
+    <node name="ground_truth_to_rpy" pkg="swag_gazebo" type="quaternion_to_rpy" output="screen" required="true">
+        <param name="topics/quaternion" value="/ground_truth"/>
+        <param name="topics/rpy" value="/ground_truth_rpy"/>
+        <param name="message_type" value="odometry"/>
+    </node>
+
+
+    <node pkg="swag_gazebo" type="quaternion_to_rpy" name="imu_bottom_to_rpy" output="screen" required="true">
+        <param name="topics/quaternion" value="/imu"/>
+        <param name="topics/rpy" value="/imu_rpy"/>
+        <param name="message_type" value="imu"/>
+    </node>
+
+    <!-- Publish segmented camera images -->
+    <include file="$(find swag_gazebo)/launch/sim_detector.launch" />
+
+    <include file="$(find pointcloud_to_laserscan)/launch/sample_node.launch" />
+
+    <!-- Launch differential drive controller -->
+    <include file="$(find swag_navigation)/launch/differential_drive.launch" />
+
+</launch>

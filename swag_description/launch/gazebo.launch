@@ -1,0 +1,14 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <param name="robot_description" textfile="$(find swag_description)/urdf/swag.urdf" />
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model swag" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+</launch>

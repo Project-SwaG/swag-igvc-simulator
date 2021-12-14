@@ -1,0 +1,11 @@
+<launch>
+    <arg name="read_from_file" default="false"/>
+
+    <!-- Loading target waypoints (Target waypoints loads if you set read_from_file to true) -->
+    <include file="$(find swag_navigation)/launch/set_waypoint_file_path.launch"/>
+
+    <node name="navigation_client" pkg="swag_navigation" type="navigation_client" output="screen" required="true">
+    <param name="read_from_file" value="$(arg read_from_file)"/>
+    </node>
+
+</launch>

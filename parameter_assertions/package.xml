@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>parameter_assertions</name>
+  <version>0.1.0</version>
+  <description>A library for ROS parameter assertions</description>
+
+  <maintainer email="jainurja24@gmail.com">Urja Jain</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">http://www.teamswag.in</url>
+  <url type="website">https://github.com/Project-SwaG/swag-igvc-simulator</url>
+
+  <author email="mishrapradumn2014@gmail.com">Pradumn Mishra</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+
+  <test_depend>rostest</test_depend>
+</package>

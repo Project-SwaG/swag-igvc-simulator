@@ -1,0 +1,14 @@
+<launch>
+  <test test-name="test_complex_datatypes" pkg="parameter_assertions" type="test_complex_datatypes">
+    <rosparam>
+      double: 5.0
+      list: [10, 11, 12, 13]
+      dict:
+        foo: "forty-two"
+        bar: "hello, world"
+      coords_list:
+        - {x: 1.0, y: 2.0, z: 3.0}
+        - {x: 10.0, y: 11.0, z: 12.0}
+    </rosparam>
+  </test>
+</launch>

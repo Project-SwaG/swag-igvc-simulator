@@ -1,0 +1,33 @@
+<launch>
+
+    <arg name="read_from_file" value="true"/>
+
+    <!-- Localization -->
+    <include file="$(find swag_navigation)/launch/localization.launch" />
+
+    <!-- Launch navigation (simulation version) -->
+    <include file="$(find swag_navigation)/launch/mbf_navigation.launch" />
+
+    <!-- Launch navigation server -->
+    <include file="$(find swag_navigation)/launch/navigation_server.launch"/>
+
+    <!-- Launch navigation client -->
+    <include file="$(find swag_navigation)/launch/navigation_client.launch">
+        <arg name="read_from_file" value="$(arg read_from_file)"/>
+    </include>
+
+    <!-- Launch differential drive controller -->
+    <!-- <include file="$(find swag_navigation)/launch/differential_drive.launch" /> -->
+
+    <!-- pointcloud filter -->
+    <include file="$(find swag_perception)/launch/pointcloud_filter.launch" />
+
+    <!-- elevation mapping -->
+    <!-- <include file="$(find swag_perception)/launch/elevation_mapping.launch" /> -->
+
+    <!-- traversability filter -->
+    <include file="$(find swag_perception)/launch/slope_filter.launch"/>
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find swag_navigation)/config/rviz_config.rviz" />
+
+</launch>

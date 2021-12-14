@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="swag_perception" type="pointcloud_filter" name="pointcloud_filter_node" output="screen" required="true">
+        <rosparam command="load" file="$(find swag_perception)/config/pointcloud_filter.yaml" />
+    </node>
+</launch>

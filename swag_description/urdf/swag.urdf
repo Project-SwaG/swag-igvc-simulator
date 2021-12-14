@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="swag">
+
+<!-- Adding base_footprint link -->
+    <link name="base_footprint"/>
+      <!-- <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+             <box size="0.001 0.001 0.001" />
+          </geometry>
+      </visual>
+    </link> -->
+
+    <joint name="base_footprint_joint" type="fixed">
+      <origin xyz="0 0 0.56" rpy="0 0 0" />       <!-- height from ground plane -->
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint> 
+
+
+<!-- Actual exported urdf -->
+  <link
+    name="base_link">
+      <origin
+        xyz="-0.01925 -0.0016451 -0.059447"
+        rpy="0 0 0" />
+<inertial>
+<mass value="1.0"/>
+<inertia ixx="0.015" iyy="0.0375" izz="0.0375"
+ixy="0" ixz="0" iyz="0"/>
+</inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh   
+          filename="package://swag_description/urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="1.2293E-13 -0.01 0.024973"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.012305"
+        ixy="5.1232E-10"
+        ixz="-2.4039E-10"
+        iyy="0.012305"
+        iyz="2.1494E-11"
+        izz="0.024088" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightW_joint"
+    type="continuous">
+    <origin
+      xyz="0.0779323744201761 -0.364999999999997 -0.374157702890345"
+      rpy="-1.57079632679486 -1.40446165194717 3.14159265358973" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="5.5499E-09 1.8538E-08 0.024973"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.012305"
+        ixy="-3.2599E-10"
+        ixz="3.2542E-11"
+        iyy="0.012305"
+        iyz="-2.3915E-10"
+        izz="0.024088" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftW_joint"
+    type="continuous">
+    <origin
+      xyz="0.0877860340011714 0.365038482923167 -0.37252"
+      rpy="1.5707963267949 0 3.14159265358978" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="lidar">
+      <origin
+        xyz="-2.0527E-07 0.030231 0.0001454"
+        rpy="0 0 0" />
+<inertial>
+<mass value="0.1"/>
+<inertia ixx="0.00083" iyy="0.00083" izz="0.000167"
+ixy="0" ixz="0" iyz="0"/>
+</inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/rslidar.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/rslidar.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.378550224270643 -0.00223404892616089 0.0100000000000009"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+
+  <link
+    name="battery">
+      <origin
+        xyz="-2.0527E-07 0.030231 0.0001454"
+        rpy="0 0 0" />
+
+    <inertial>
+      <origin
+        xyz="5.5499E-09 1.8538E-08 0.024973"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.012305"
+        ixy="-3.2599E-10"
+        ixz="3.2542E-11"
+        iyy="0.012305"
+        iyz="-2.3915E-10"
+        izz="0.024088" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="battery_joint"
+    type="fixed">
+    <origin
+      xyz="-0.378550224270643 -0.00223404892616089 -0.100000000000009"
+      rpy="1.5707963267949 0 1.57079632679489" />
+    <parent
+      link="base_link" />
+    <child
+      link="battery" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  
+  
+  <link
+    name="depth_camera">
+    <inertial>
+      <origin
+        xyz="0.0148938115667123 0.0283262503127141 0.0395944852205197"
+        rpy="0 0 0" />
+      <mass
+        value="0.0114541017386688" />
+      <inertia
+        ixx="2.15039864463681E-06"
+        ixy="3.2699281305158E-09"
+        ixz="-1.11910063556882E-10"
+        iyy="1.31245899187385E-06"
+        iyz="2.45879692105711E-08"
+        izz="2.941886168358E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+      <box size="0.035 0.035 0.035"/>
+        <!-- <mesh
+          filename="package://swag_description/urdf/meshes/zoom_cam_housing.stl" /> -->
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+      <box size="0.035 0.035 0.035"/>
+        <!-- <mesh
+          filename="package://swag_description/urdf/meshes/zoom_cam_housing.stl" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <!-- 0.420934564581309 -->
+  <joint
+    name="dc_joint"
+    type="fixed">
+    <origin
+      xyz="0.47 -0.0170408859469605 -0.0532152731798572"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="depth_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <link
+    name="gps">
+      <origin
+        xyz="0.0878665445467171 0.130422234630833 0.125015268882887"
+        rpy="0 0 0" />
+      <inertial>
+<mass value="0.1"/>
+<inertia ixx="0.00083" iyy="0.00083" izz="0.000167"
+ixy="0" ixz="0" iyz="0"/>
+</inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/gps.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/gps.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_joint"
+    type="fixed">
+    <origin
+      xyz="0.046914 -0.12501 0.78114"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="realsense_camera">
+      <origin
+        xyz="0.0107003703349945 0.042628811329497 0.092647371898425"
+        rpy="0 0 0" />
+<inertial>
+<mass value="0.1"/>
+<inertia ixx="0.00083" iyy="0.00083" izz="0.000167"
+ixy="0" ixz="0" iyz="0"/>
+</inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" /> 
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rc_joint" type="fixed">
+    <origin xyz="0.27 0.0 0.155" rpy="0 0.3 0" />      
+    <parent
+      link="base_link" />
+    <child
+      link="realsense_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="caster_wheel">
+    <inertial>
+      <origin
+        xyz="-9.4369E-16 -1.0547E-15 0.021548"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.0024135"
+        ixy="0"
+        ixz="-1.3824E-18"
+        iyy="0.0024135"
+        iyz="-2.9341E-18"
+        izz="0.0047228" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cj"
+    type="continuous">
+    <origin
+      xyz="-0.47513 0.024316 -0.41133"
+      rpy="-1.5708 1.0882 3.088" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+<!-- IMU link -->  
+<link name="imu">
+    <visual>
+      <geometry>
+        <box size="0.075 0.075 0.075"/>
+      </geometry>
+    </visual>
+</link>
+
+<joint name="imu_joint" type="fixed">
+    <origin
+      xyz="0.23 0 0.11"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis xyz="0 0 0" />
+</joint>
+
+
+<!-- Kinect 1 -->
+  <link
+    name="kinect1">
+      <origin xyz="0.0107003703349945 0.042628811329497 0.092647371898425" rpy="0 0 0" />
+    <inertial>
+    <mass value="0.1"/>
+    <inertia ixx="0.00083" iyy="0.00083" izz="0.000167"
+    ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" /> 
+      </geometry>
+    </collision>
+  </link>
+  <joint name="kinect1_joint" type="fixed">
+    <origin xyz="0.0 -0.37 0.85" rpy="0 0.9 -1.57" />    
+    <parent
+      link="base_link" />
+    <child
+      link="kinect1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+    <gazebo reference="kinect1">  
+      <sensor type="depth" name="kinect1_sensor">
+        <always_on>true</always_on>
+        <update_rate>20.0</update_rate>
+        <camera>
+          <horizontal_fov>1.3</horizontal_fov>        <!-- As per datasheet 69 * 42 -->
+          <vertical_fov>0.7504</vertical_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>8.0</far>
+          </clip>
+        </camera>
+        <plugin name="kinect1_controller" filename="libgazebo_ros_openni_kinect.so">
+          <cameraName>kinect1</cameraName>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>10</updateRate>
+          <imageTopicName>rgb/image_raw</imageTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <pointCloudTopicName>depth/points</pointCloudTopicName>
+          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <frameName>/kinect1</frameName>
+          <baseline>0.1</baseline>
+          <distortion_k1>0.0</distortion_k1>
+          <distortion_k2>0.0</distortion_k2>
+          <distortion_k3>0.0</distortion_k3>
+          <distortion_t1>0.0</distortion_t1>
+          <distortion_t2>0.0</distortion_t2>
+          <pointCloudCutoff>0.4</pointCloudCutoff>
+          <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+
+<!-- Kinect2 -->
+  <link
+    name="kinect2">
+      <origin xyz="0.0107003703349945 0.042628811329497 0.092647371898425" rpy="0 0 0" />
+    <inertial>
+    <mass value="0.1"/>
+    <inertia ixx="0.00083" iyy="0.00083" izz="0.000167"
+    ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://swag_description/urdf/meshes/intel_r430.dae" /> 
+      </geometry>
+    </collision>
+  </link>
+  <joint name="kinect2_joint" type="fixed">
+    <origin xyz="0.0 0.37 0.85" rpy="0 0.9 1.57" />   
+    <parent
+      link="base_link" />
+    <child
+      link="kinect2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <gazebo reference="kinect2">  
+      <sensor type="depth" name="kinect2_sensor">
+        <always_on>true</always_on>
+        <update_rate>20.0</update_rate>
+        <camera>
+          <horizontal_fov>1.3</horizontal_fov>        <!-- As per datasheet 69 * 42 -->
+          <vertical_fov>0.7504</vertical_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>8.0</far>
+          </clip>
+        </camera>
+        <plugin name="kinect2_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>kinect2</cameraName>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>10</updateRate>
+          <imageTopicName>rgb/image_raw</imageTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <pointCloudTopicName>depth/points</pointCloudTopicName>
+          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <frameName>/kinect2</frameName>
+          <baseline>0.1</baseline>
+          <distortion_k1>0.0</distortion_k1>
+          <distortion_k2>0.0</distortion_k2>
+          <distortion_k3>0.0</distortion_k3>
+          <distortion_t1>0.0</distortion_t1>
+          <distortion_t2>0.0</distortion_t2>
+          <pointCloudCutoff>0.4</pointCloudCutoff>
+          <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+<!-- Wheel properties -->
+<Gazebo reference="caster_wheel">
+  <mu1 value="1500.0"/>
+  <mu2 value="1500.0"/>
+  <kp value="10000000.0" />
+  <kd value="1000.0" />
+  <fdir1 value="1 0 0"/>
+</Gazebo>
+
+<Gazebo reference="left_wheel">
+  <mu1 value="1500.0"/>
+  <mu2 value="1500.0"/>
+  <kp value="10000000.0" />
+  <kd value="100.0" />
+  <fdir1 value="1 0 0"/>
+</Gazebo>
+
+<Gazebo reference="right_wheel">
+  <mu1 value="1500.0"/>
+  <mu2 value="1500.0"/>
+  <kp value="10000000.0" />
+  <kd value="100.0" />
+  <fdir1 value="1 0 0"/>
+</Gazebo>
+
+
+
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="lidar">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="caster_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="realsense_camera">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+<gazebo reference="gps">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+<gazebo reference="imu_link">
+    <material>Gazebo/Red</material>
+</gazebo>
+
+<gazebo reference="kinect1">
+    <material>Gazebo/Black</material>
+</gazebo>
+
+
+<gazebo reference="kinect2">
+    <material>Gazebo/Black</material>
+</gazebo>
+
+
+
+
+
+<!-- Sensor drivers/plugins -->
+
+<!-- differential_drive  -->
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+  <updateRate>100</updateRate>
+  <leftJoint>leftW_joint</leftJoint>
+  <rightJoint>rightW_joint</rightJoint>
+  <robotBaseFrame>base_footprint</robotBaseFrame>
+  <commandTopic>cmd_vel</commandTopic>
+  <odometryTopic>odom</odometryTopic>
+  <odometryFrame>odom</odometryFrame>
+  <wheelSeparation>0.75</wheelSeparation>                 <!--Check with model-->
+  <wheelDiameter>0.28</wheelDiameter>
+  <publishWheelJointState>true</publishWheelJointState>
+  <legacyMode>false</legacyMode>
+  <publishOdom>true</publishOdom>
+  </plugin>
+</gazebo>
+
+
+
+  <!-- camera -->
+  <!-- <gazebo reference="depth_camera">
+    <sensor name="center_camera" type="camera">
+        <camera>
+          <horizontal_fov>2.239</horizontal_fov>
+          <vertical_fov>1.995</vertical_fov>
+          <image>
+            <width>640</width>
+            <height>512</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30.0</updateRate>
+          <cameraName>depth_camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>optical_cam_center</frameName>
+          <hackBaseline>0.0</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+  </gazebo> -->
+
+
+
+  <!-- gps -->
+    <gazebo>
+      <plugin filename="libhector_gazebo_ros_gps.so" name="gps">
+      <updateRate>20.0</updateRate>
+      <bodyName>gps</bodyName>
+      <frameId>gps</frameId>
+      <topicName>/fix</topicName>
+      <velocityTopicName>/fix_velocity</velocityTopicName>
+      <referenceLatitude>33.774497</referenceLatitude>
+      <referenceLongitude>-84.405001</referenceLongitude>
+      <referenceAltitude>309.0</referenceAltitude>
+      <drift>0.001 0.001 0.001</drift>
+      <gaussianNoise>0.0001 0.0001 0.0001</gaussianNoise>
+      <velocityDrift>0 0 0</velocityDrift>
+      <velocityGaussianNoise>0.005 0.005 0.05</velocityGaussianNoise>
+      </plugin>
+    </gazebo>
+
+
+
+<!-- lidar -->
+<!-- <gazebo reference="lidar">
+        <sensor type="ray" name="sensor_rslidar_gazebo">
+          <pose>0 0 0 0 0 0.0</pose>
+          <visualize>false</visualize>
+          <update_rate>20</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>10</samples>
+                <min_angle>-3.14</min_angle>
+                <max_angle>3.14</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>10</samples>
+                <min_angle>-0.707</min_angle>
+                <max_angle>0.707</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.4</min>
+              <max>18</max>
+              <resolution>0.01</resolution>
+            </range>
+            <noise>
+              <type>none</type>
+            </noise>
+          </ray>
+          <plugin name="plugin_lib" filename="libgazebo_ros_velodyne_laser.so">
+            <topicName>rslidar/point_cloud</topicName>
+            <frameName>lidar</frameName>
+            <gaussianNoise>0.008</gaussianNoise>
+          </plugin>
+        </sensor>
+    </gazebo> -->
+
+    <gazebo reference="lidar">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/laser/scan</topicName>
+        <frameName>lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+
+
+
+
+<!-- RealSense -->
+  <gazebo reference="realsense_camera">
+        <sensor type="depth" name="realsense_camera_gazebo_plugin_macro">
+          <update_rate>90</update_rate>
+          <camera>
+            <horizontal_fov>1.4</horizontal_fov>        <!-- As per datasheet 69 * 42 -->
+            <vertical_fov>0.733</vertical_fov>
+            <image>
+              <format>B8G8R8</format>
+              <width>1920</width>
+              <height>1080</height>
+            </image>
+            <clip>
+              <near>0.3</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name="realsense_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+            <cameraName>realsense_camera</cameraName>  
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>depth_points</pointCloudTopicName>
+            <frameName>realsense_camera</frameName>
+          </plugin>
+        </sensor>
+  </gazebo>
+
+
+<!-- IMU sensor -->
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+    <plugin filename="libhector_gazebo_ros_imu.so" name="imu">
+      <serviceName>/imu/calibrate</serviceName>
+      <updateRate>200.0</updateRate>
+      <bodyName>imu</bodyName>
+      <frameId>imu</frameId>
+      <topicName>/imu</topicName>
+      <rpyOffset>0 0 0</rpyOffset>
+      <xyzOffset>0 0 0</xyzOffset>
+      <gaussianNoise>0.00000001</gaussianNoise>
+      <accelDrift>0.00000001 0.00000001 0.00000001</accelDrift>
+      <accelDriftFrequency>0.00000001 0.00000001 0.00000001</accelDriftFrequency>
+      <accelGaussianNoise>0.00000001 0.00000001 0.00000001</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateDriftFrequency>0.0 0.0 0.0</rateDriftFrequency>
+      <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+      <headingDrift>0.0 0.0 0.0</headingDrift>
+      <headingDriftFrequency>0.0 0.0 0.0</headingDriftFrequency>
+      <headingGaussianNoise>0.0 0.0 0.0</headingGaussianNoise>
+      <yawOffset>1.5707963</yawOffset>
+    </plugin>
+</gazebo>
+
+
+
+<!-- Publishes world to base_footprint tranformation information -->
+  <!-- <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>200.0</updateRate>
+      <bodyName>base_footprint</bodyName>
+      <topicName>ground_truth/state_raw</topicName>
+      <gaussianNoise>0.00</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+    </plugin>
+  </gazebo> -->
+
+
+
+</robot>
