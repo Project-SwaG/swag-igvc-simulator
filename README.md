@@ -2,7 +2,7 @@
 
 <img src="./repo_assets_for_readme/cadmodel.jpg" width="900" height="600" align="center" /><br>
 
-# About Swayamchalit Gaadi
+# About Swayamchalit Gaadi (Project SwaG)
 
 Project Swayamchalit Gaadi,the first self-driving car team from Odisha currently working on Level-4 Autonomous vehicles and small-scale self-driving car prototypes. It was started in 2019 with the vision of our founders [Anshuman Parhi](https://www.linkedin.com/in/anshuman-parhi/), [Anand Golla](https://www.linkedin.com/in/anandgolla/) and our respected seniors under the mentorship of [Prof. Isham Panigrahi](https://www.linkedin.com/in/isham-panigrahi-9a192797/).<br>
 We aim to build a completely homegrown autonomous vehicle and represent it on international grounds. We intend to represent our college and country at IGVC and Formulae Student Germany.
