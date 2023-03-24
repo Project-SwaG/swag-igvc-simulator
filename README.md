@@ -19,6 +19,11 @@ For more detailed information about our team, check out our social media pages:<
 </p>
 
 # Our Hard Working and Amazing Team
+
+## Cofounders
+[![Anshuman Parhi](https://img.shields.io/badge/-Abhishek%20Kolay-white)](https://www.linkedin.com/in/anshuman-parhi/)
+
+
 ## Team Manager
 [![Abhishek Kolay](https://img.shields.io/badge/-Abhishek%20Kolay-yellowgreen)](https://www.linkedin.com/in/abhishek-kolay-a898061a5/)
 
